@@ -1,0 +1,174 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"title": "Tempertura",
+			"width": 1,
+			"row": {
+				"3": 1,
+				"4": 1
+			},
+			"col": {
+				"3": 1,
+				"4": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "Temperatura",
+						"value": "datasources[\"Temp\"][\"Temperature\"]",
+						"units": "C",
+						"min_value": "5",
+						"max_value": "50"
+					}
+				}
+			]
+		},
+		{
+			"title": "Temperatura(30 min)",
+			"width": 1,
+			"row": {
+				"3": 1,
+				"4": 1
+			},
+			"col": {
+				"3": 2,
+				"4": 2
+			},
+			"col_width": 2,
+			"widgets": [
+				{
+					"type": "highcharts-timeseries",
+					"settings": {
+						"timeframe": 1800,
+						"blocks": 4,
+						"chartType": "spline",
+						"title": "",
+						"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
+						"yaxis": "{\"title\":{\"text\" : \"Values\"}, \"minorTickInterval\":\"auto\",\"floor\":0}",
+						"series1": "datasources[\"Temp\"][\"Temperature\"]",
+						"series1label": "Temperatura"
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 9,
+				"4": 9
+			},
+			"col": {
+				"3": 1,
+				"4": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "Umidade",
+						"value": "datasources[\"Temp\"][\"Humidity\"]",
+						"units": "%",
+						"min_value": "15",
+						"max_value": 100
+					}
+				}
+			]
+		},
+		{
+			"title": "Umidade(30 min)",
+			"width": 1,
+			"row": {
+				"3": 11,
+				"4": 11
+			},
+			"col": {
+				"3": 2,
+				"4": 2
+			},
+			"col_width": 2,
+			"widgets": [
+				{
+					"type": "highcharts-timeseries",
+					"settings": {
+						"timeframe": 1800,
+						"blocks": 4,
+						"chartType": "spline",
+						"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
+						"yaxis": "{\"title\":{\"text\" : \"Values\"}, \"minorTickInterval\":\"auto\", \"floor\":0}",
+						"series1": "datasources[\"Temp\"][\"Humidity\"]",
+						"series1label": "Umidade",
+						"series2": "",
+						"series2label": ""
+					}
+				}
+			]
+		},
+		{
+			"title": "Temperatura(24 horas)",
+			"width": 1,
+			"row": {
+				"4": 1
+			},
+			"col": {
+				"4": 4
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "highcharts-timeseries",
+					"settings": {
+						"timeframe": 86400,
+						"blocks": 4,
+						"chartType": "spline",
+						"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
+						"yaxis": "{\"title\":{\"text\" : \"Values\"}, \"minorTickInterval\":\"auto\", \"floor\":0}",
+						"series1": "datasources[\"Temp\"][\"Temperature\"]",
+						"series1label": "Temperatura"
+					}
+				}
+			]
+		},
+		{
+			"title": "Umidade(24horas)",
+			"width": 1,
+			"row": {
+				"4": 11
+			},
+			"col": {
+				"4": 4
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "highcharts-timeseries",
+					"settings": {
+						"timeframe": 86400,
+						"blocks": 4,
+						"chartType": "spline",
+						"xaxis": "{\"title\":{\"text\" : \"Time\"}, \"type\": \"datetime\", \"floor\":0}",
+						"yaxis": "{\"title\":{\"text\" : \"Values\"}, \"minorTickInterval\":\"auto\", \"floor\":0}",
+						"series1": "datasources[\"Temp\"][\"Humidity\"]",
+						"series1label": "Umidade"
+					}
+				}
+			]
+		}
+	],
+	"datasources": [
+		{
+			"name": "Temp",
+			"type": "dweet_io",
+			"settings": {
+				"thing_id": "Faztemp",
+				"name": "Temp"
+			}
+		}
+	],
+	"columns": 4
+}

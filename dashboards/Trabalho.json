@@ -1,0 +1,76 @@
+{
+	"version": 1,
+	"allow_edit": true,
+	"plugins": [],
+	"panes": [
+		{
+			"width": 1,
+			"row": {
+				"1": 1,
+				"3": 5
+			},
+			"col": {
+				"1": 1,
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "Temperatura",
+						"value": "datasources[\"Trab\"][\"with\"][0][\"content\"][\"Temperature\"]",
+						"units": "C",
+						"min_value": 0,
+						"max_value": 100
+					}
+				},
+				{
+					"type": "gauge",
+					"settings": {
+						"title": "Umidade",
+						"value": "datasources[\"Trab\"][\"with\"][0][\"content\"][\"Humidity\"]",
+						"units": "%",
+						"min_value": 0,
+						"max_value": 100
+					}
+				}
+			]
+		},
+		{
+			"width": 1,
+			"row": {
+				"3": 1
+			},
+			"col": {
+				"3": 1
+			},
+			"col_width": 1,
+			"widgets": [
+				{
+					"type": "text_widget",
+					"settings": {
+						"title": "",
+						"size": "regular",
+						"value": "\" Sala de trabalho\"",
+						"animate": true
+					}
+				}
+			]
+		}
+	],
+	"datasources": [
+		{
+			"name": "Trab",
+			"type": "JSON",
+			"settings": {
+				"url": "HTTPS://dweet.io/get/latest/dweet/for/SalaTrabalho",
+				"use_thingproxy": true,
+				"refresh": 5,
+				"method": "GET",
+				"name": "Trab"
+			}
+		}
+	],
+	"columns": 3
+}
